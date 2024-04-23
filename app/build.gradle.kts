@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.sonarqube") version "4.4.1.3373"
 }
 
 android {
@@ -66,4 +67,12 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "PruebaSonarCloud_PruebaCIZAndroid")
+        property("sonar.organization", "pruebasonarcloud-2")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }

@@ -1,0 +1,40 @@
+name: Template
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Build and analyze
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Execute Continuous Integration Action
+      uses: PruebaSonarCloud/TestCIZAndroid/.github/actions/continuous-integration-action@main
+      with:
+        SONAR_PROJECT_KEY: ${{ vars.SONAR_PROJECT_KEY }}
+        SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
+        SONARQUBE_TOKEN : ${{ secrets.SONAR_TOKEN }}
+        
+
+
+
+    
+    
+    
+    
+          
+    
+          
+    
+    
+    
+    
+
+      
+

@@ -59,4 +59,6 @@ runs:
           restore-keys: ${{ runner.os }}-gradle
           
     - name: Build and analyze
-        run: ./gradlew build sonar --info
+      env:
+        SONAR_TOKEN: ${{ inputs.SONARQUBE_TOKEN }}
+      run: ./gradlew build sonar --info
